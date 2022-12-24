@@ -105,7 +105,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="add.png" />
     <Content Include="Assets\data.sqlite" />
+    <Content Include="back.png" />
     <Content Include="delete.png" />
     <Content Include="edit.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -137,7 +139,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="xamarin_logo.png" />
-    <Content Include="add.png" />
     <Content Include="save.png" />
     <Content Include="cancel.png" />
   </ItemGroup>
@@ -153,16 +154,18 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SkiaSharp">
-      <Version>1.68.0</Version>
+      <Version>2.88.3</Version>
     </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms">
-      <Version>1.68.0</Version>
+      <Version>2.88.3</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
-      <Version>1.5.231</Version>
+      <Version>1.8.116</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2545</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PD_Diary\PD_Diary.csproj">

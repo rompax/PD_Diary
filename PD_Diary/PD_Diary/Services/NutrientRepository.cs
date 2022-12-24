@@ -63,7 +63,7 @@ namespace PD_Diary.Services
             string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(App.DATABASE_NAME);
             SQLiteConnection connect = new SQLiteConnection(databasePath);
             {
-                SQLiteCommand fmd = connect.CreateCommand(commandText, null);
+                SQLiteCommand fmd = connect.CreateCommand(commandText);
                 {
                     fmd.ExecuteQuery<Nutrient>();
                 }

@@ -2,6 +2,7 @@
 using System.Windows.Input;
 
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace PD_Diary.ViewModels
 {
@@ -11,7 +12,7 @@ namespace PD_Diary.ViewModels
         {
             Title = "About";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            OpenWebCommand = new Command(() =>  Launcher.OpenAsync(new Uri("https://xamarin.com/platform")));
         }
 
         public ICommand OpenWebCommand { get; }

@@ -1,23 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:PD_Diary.Views"
-            x:Class="PD_Diary.Views.MainPage">
+            x:Class="PD_Diary.Views.MainPage"
+            xmlns:local="clr-namespace:PD_Diary;assembly=PD_Diary"
+            FlyoutLayoutBehavior="Popover">
 
-    <MasterDetailPage.Master>
+    <FlyoutPage.Flyout>
         <views:MenuPage />
-    </MasterDetailPage.Master>
-
-    <MasterDetailPage.Detail>
+    </FlyoutPage.Flyout>
+    
+    <FlyoutPage.Detail>
         <NavigationPage>
+            <x:Arguments>
+                <views:DayPage/>
+            </x:Arguments>
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_feed.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
-            <x:Arguments>
-                <views:DayPage/>
-            </x:Arguments>
         </NavigationPage>
-    </MasterDetailPage.Detail>
-</MasterDetailPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

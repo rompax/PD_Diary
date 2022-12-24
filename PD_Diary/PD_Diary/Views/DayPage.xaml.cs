@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Globalization;
 using System.Threading;
+using static Xamarin.Forms.Internals.GIFBitmap;
 
 namespace PD_Diary.Views
 {
@@ -89,13 +90,24 @@ namespace PD_Diary.Views
 
                     var canvas = surface.Canvas;
 
-                    canvas.DrawCircle(new SKPoint(surfaceWidth-r, r), 
-                        r, 
-                        new SKPaint() {
-                            Color = Color.Red.ToSKColor(), IsAntialias= true, Style=SKPaintStyle.Fill
-                        });
-                    canvas.Flush();
+                    using (SKPaint paint = new SKPaint())
+                    {
+                        SKRect rect = new SKRect(surfaceWidth - 2 * r, 0, surfaceWidth, 2 * r);
+                        paint.Shader = SKShader.CreateLinearGradient(
+                            new SKPoint(rect.Left, rect.Top),
+                            new SKPoint(rect.Right, rect.Bottom),
+                            new SKColor[] { SKColors.Red, SKColors.Blue },
+                            new float[] { 0, r },
+                            SKShaderTileMode.Repeat);
+                        canvas.DrawRect(rect, paint);
+                    }
 
+                    //canvas.DrawCircle(new SKPoint(surfaceWidth-r, r), 
+                    //    r, 
+                    //    new SKPaint() {
+                    //        Color = Color.Red.ToSKColor(), IsAntialias= true, Style=SKPaintStyle.Fill
+                    //    });
+                    canvas.Flush();
                 };
 
                 SummaryGrid.Children.Add(skCanvas, 3, rowIdx);

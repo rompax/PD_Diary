@@ -8,14 +8,12 @@ using Xamarin.Forms.Xaml;
 namespace PD_Diary.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : FlyoutPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
             InitializeComponent();
-
-            MasterBehavior = MasterBehavior.Popover;
 
             //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }

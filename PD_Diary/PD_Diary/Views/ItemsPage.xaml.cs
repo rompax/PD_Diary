@@ -36,16 +36,17 @@ namespace PD_Diary.Views
                     return;
 
             await Navigation.PushModalAsync(new NavigationPage(new ItemDetailPage(item)));
-
-            // Manually deselect item.
-            //ItemsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
 
             await Navigation.PushModalAsync(new NavigationPage(new ItemDetailPage() { ReadOnly = false }));
-            //await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+        }
+
+        async void Back_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
 
 
